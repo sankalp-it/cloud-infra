@@ -1,4 +1,6 @@
 **/.terraform/*
+.DS_Store
+**/.DS_Store
 .terraform.lock.hcl
 .terraform.tfstate.lock.info
 terraform.tfstate
