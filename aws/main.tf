@@ -1,4 +1,18 @@
+terraform {
+  # cloud {
+  #   organization = "sankalp-cloud"
 
+  #   workspaces {
+  #     name = "aws-cloud-infra-ws"
+  #   }
+  # }
+  required_providers {
+    aws = {
+      source = "hashicorp/aws"
+      version = "4.58.0"
+    }
+  }
+}
 # resource "aws_instance" "my-machine" {
 #     provider = aws.west2
 #     count = 1
