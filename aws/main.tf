@@ -1,11 +1,11 @@
 terraform {
-  # cloud {
-  #   organization = "sankalp-cloud"
+  cloud {
+    organization = "sankalp-cloud"
 
-  #   workspaces {
-  #     name = "aws-cloud-infra-ws"
-  #   }
-  # }
+    workspaces {
+      name = "aws-cloud-infra-ws"
+    }
+  }
   required_providers {
     aws = {
       source = "hashicorp/aws"
