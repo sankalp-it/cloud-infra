@@ -14,4 +14,5 @@ resource "aws_instance" "my-machine" {
     tags = {
         Name = "${var.instance_name_prefix}-${count.index}"
     }
+    key_name = var.instance_key_name
 }

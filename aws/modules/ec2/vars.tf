@@ -8,3 +8,7 @@ variable "instance_type" {
 variable "instance_name_prefix" {
     type = string
 }
+
+variable "instance_key_name" {
+    type = string
+}

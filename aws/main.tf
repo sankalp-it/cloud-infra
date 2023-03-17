@@ -24,7 +24,16 @@ terraform {
 # }
 
 
-module "my_aws_instance" {
+
+
+module "aws_key_pair" {
+  source = "./modules/security/keypair"
+  providers = {
+      aws = aws.west2
+ }
+}
+
+module "my_aws_instance"{
     source = "./modules/ec2"
     providers = {
       aws = aws.west2
@@ -32,5 +41,7 @@ module "my_aws_instance" {
     ami_name  = var.ami_name
     instance_type = var.instance_type
     instance_name_prefix = var.instance_name_prefix
+    instance_key_name = "${module.aws_key_pair.tf_key_pair_key_name}"
+    # depends_on = [aws_key_pair.tf_key_pair]
     
 }
