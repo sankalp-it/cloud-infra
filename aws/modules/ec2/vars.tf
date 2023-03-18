@@ -12,3 +12,7 @@ variable "instance_name_prefix" {
 variable "instance_key_name" {
     type = string
 }
+
+variable "sg_id" {
+    type = string
+}
