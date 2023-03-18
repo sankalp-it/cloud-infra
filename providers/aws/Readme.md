@@ -1,1 +1,1 @@
-This folder will contaimn list of all AWS providers
+This folder will contaimn list of all AWS providers.
