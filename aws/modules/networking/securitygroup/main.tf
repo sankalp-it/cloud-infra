@@ -1,3 +1,13 @@
+# To be able to pass providers to child modules declare the required_providers section within child module
+
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+    }
+  }
+}
+
 
 resource "aws_default_vpc" "default" {
   tags = {

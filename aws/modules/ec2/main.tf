@@ -7,7 +7,12 @@ terraform {
 }
 
 resource "aws_instance" "my-machine" {
-    # provider = aws.west2
+    # provider {
+    #   aws = aws.east2
+    # }
+    # provider {
+    #   region = "us-east-1"
+    # }
     count = 1
     ami = var.ami_name
     instance_type = var.instance_type

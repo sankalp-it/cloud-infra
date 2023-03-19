@@ -5,23 +5,24 @@ terraform {
     workspaces {
       name = "aws-cloud-infra-ws"
     }
+    # providers = {
+    #   aws = aws.east1
+    # }
   }
-  required_providers {
-    aws = {
-      source = "hashicorp/aws"
-      version = "4.58.0"
-    }
-  }
+  # required_providers {
+  #   aws = {
+  #     source = "hashicorp/aws"
+  #     version = "4.58.0"
+  #   }
+  # }
 }
-# resource "aws_instance" "my-machine" {
-#     provider = aws.west2
-#     count = 1
-#     ami = var.ami
-#     instance_type = var.instance_type
-#     tags = {
-#         Name = "my-machine-${count.index}"
-#     }
+
+# provider "aws" {
+#   shared_credentials_files = ["~/.aws/credentials"]
+#   region = "us-west-2"
+#   alias="west21"
 # }
+
 
 module "aws_key_pair" {
   source = "./modules/security/keypair"
