@@ -16,3 +16,7 @@ variable "instance_key_name" {
 variable "sg_id" {
     type = string
 }
+
+variable "user_data" {
+    type = string
+}
