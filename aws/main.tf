@@ -1,21 +1,21 @@
-terraform {
-  cloud {
-    organization = "sankalp-cloud"
+# terraform {
+#   cloud {
+#     organization = "sankalp-cloud"
 
-    workspaces {
-      name = "aws-cloud-infra-ws"
-    }
-    # providers = {
-    #   aws = aws.east1
-    # }
-  }
-  # required_providers {
-  #   aws = {
-  #     source = "hashicorp/aws"
-  #     version = "4.58.0"
-  #   }
-  # }
-}
+#     workspaces {
+#       name = "aws-cloud-infra-ws"
+#     }
+#     # providers = {
+#     #   aws = aws.east1
+#     # }
+#   }
+#   # required_providers {
+#   #   aws = {
+#   #     source = "hashicorp/aws"
+#   #     version = "4.58.0"
+#   #   }
+#   # }
+# }
 
 # provider "aws" {
 #   shared_credentials_files = ["~/.aws/credentials"]
@@ -27,21 +27,21 @@ terraform {
 module "aws_key_pair" {
   source = "./modules/security/keypair"
   providers = {
-      aws = aws.west2
+      aws = aws.east2
  }
 }
 
 module "mod_security_group" {
   source = "./modules/networking/securitygroup"
   providers = {
-      aws = aws.west2
+      aws = aws.east2
  }
 }
 
 module "my_aws_instance"{
     source = "./modules/ec2"
     providers = {
-      aws = aws.west2
+      aws = aws.east2
     }
     ami_name  = var.ami_name
     instance_type = var.instance_type

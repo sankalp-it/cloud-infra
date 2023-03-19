@@ -3,6 +3,7 @@ terraform {
   required_providers {
     aws = {
       source = "hashicorp/aws"
+      version = "4.58.0"
     }
   }
 }
@@ -15,7 +16,7 @@ provider "aws" {
     # Need to check how to make Terracloud work with profiles
     # or Local work without profile
     # Terracloud work by using the AWS kets defined as workspace variables
-    # profile = "cloud19-tf-user-tf"
+    profile = "cloud19-tf-user-tf"
     #alias = "east2"
 }
 
@@ -27,7 +28,7 @@ provider "aws" {
     # Need to check how to make Terracloud work with profiles
     # or Local work without profile
     # Terracloud work by using the AWS kets defined as workspace variables
-    # profile = "cloud19-tf-user-tf"
+    profile = "cloud19-tf-user-tf"
     alias = "east2"
 }
 
@@ -39,6 +40,6 @@ provider "aws" {
     # Need to check how to make Terracloud work with profiles
     # or Local work without profile
     # Terracloud work by using the AWS kets defined as workspace variables
-    # profile = "cloud19-tf-user-tf"
+    profile = "cloud19-tf-user-tf"
     alias = "west2"
 }
