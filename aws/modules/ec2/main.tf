@@ -15,12 +15,12 @@ resource "aws_instance" "my-machine" {
     # provider {
     #   region = "us-east-1"
     # }
-    count = 1
+    //count = 1
     ami = var.ami_name
     instance_type = var.instance_type
-    tags = {
-        Name = "${var.instance_name_prefix}-${count.index}"
-    }
+    # tags = {
+    #     Name = "${var.instance_name_prefix}-${count.index}"
+    # }
     key_name = var.instance_key_name
     associate_public_ip_address = true
     vpc_security_group_ids = [var.sg_id]
@@ -33,4 +33,8 @@ resource "aws_instance" "my-machine" {
     
   }
     //vpc_id = var.vpc_id
+}
+
+output "ec2_instance_id" {
+  value = aws_instance.my-machine.id
 }

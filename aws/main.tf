@@ -38,7 +38,7 @@ module "mod_security_group" {
  }
 }
 
-module "my_aws_instance"{
+module "my_ec2_instance"{
     source = "./modules/ec2"
     providers = {
       aws = aws.east2
@@ -53,3 +53,25 @@ module "my_aws_instance"{
     # depends_on = [aws_key_pair.tf_key_pair]
     
 }
+#creating ebs volume
+module "ec2_secondary_data_vol" {
+  source = "./modules/storage/esb-volume"
+  providers = {
+      aws = aws.east2
+  }
+  availability_zone = var.availability_zone
+  esb_volume_size = var.esb_volume_size
+  esb_volume_name = var.esb_volume_name
+}
+
+#Attaching created volume to ec2 instance created above
+module "ec2_volume_attachment" {
+  source = "./modules/storage/esb-volume-attachment"
+  providers = {
+      aws = aws.east2
+  }
+  device_name = var.device_name
+  esb_volume_id = "${module.ec2_secondary_data_vol.aws_ebs_volume_id}"
+  ec2_instance_id = "${module.my_ec2_instance.ec2_instance_id}"
+}
+
