@@ -1,4 +1,4 @@
-variable "ami_name" {
+variable "ami_id" {
     type = string
 }
 variable "instance_type" {
@@ -19,4 +19,5 @@ variable "sg_id" {
 
 variable "user_data" {
     type = string
+    default = ""
 }

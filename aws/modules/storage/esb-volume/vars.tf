@@ -10,3 +10,8 @@ variable "esb_volume_size" {
 variable "esb_volume_name" {
     type = string
 }
+
+variable "volume_source_snapshot_id" {
+    type = string
+    default = ""
+}

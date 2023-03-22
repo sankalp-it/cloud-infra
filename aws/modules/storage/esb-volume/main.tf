@@ -12,6 +12,7 @@ terraform {
 resource "aws_ebs_volume" "data-vol" {
  availability_zone = var.availability_zone
  size = var.esb_volume_size
+ snapshot_id = var.volume_source_snapshot_id
  tags = {
         Name = var.esb_volume_name
  }

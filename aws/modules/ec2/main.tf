@@ -16,7 +16,7 @@ resource "aws_instance" "my-machine" {
     #   region = "us-east-1"
     # }
     //count = 1
-    ami = var.ami_name
+    ami = var.ami_id
     instance_type = var.instance_type
     # tags = {
     #     Name = "${var.instance_name_prefix}-${count.index}"
@@ -34,6 +34,8 @@ resource "aws_instance" "my-machine" {
   }
     //vpc_id = var.vpc_id
 }
+
+
 
 output "ec2_instance_id" {
   value = aws_instance.my-machine.id
